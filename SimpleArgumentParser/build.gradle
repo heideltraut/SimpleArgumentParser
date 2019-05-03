@@ -7,6 +7,7 @@
  */
  
 apply plugin: "java"
+apply plugin: 'jacoco'
 sourceCompatibility = 11.0
 
 plugins {
@@ -31,8 +32,31 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-task hello {
-   doLast {
-      println 'tutorialspoint'
-   }
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled true
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+        html.enabled false
+        csv.enabled false
+    }
+}
+
+codeCoverageReport.dependsOn {
+    subprojects*.test
+}
+
 }
