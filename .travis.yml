@@ -1,6 +1,8 @@
 language: java
 jdk:
   - openjdk11
+before_script:
+  - chmod +x SimpleArgumentParser/gradlew
 script:
   - ./SimpleArgumentParser/gradlew check
   - ./SimpleArgumentParser/gradlew codeCoverageReport
