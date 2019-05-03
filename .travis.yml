@@ -2,7 +2,7 @@ language: java
 jdk:
   - openjdk11
 script:
-  - ./gradlew check
-  - ./gradlew codeCoverageReport
+  - ./SimpleArgumentParser/gradlew check
+  - ./SimpleArgumentParser/gradlew codeCoverageReport
 after_success:
   - bash <(curl -s https://codecov.io/bash)
