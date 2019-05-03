@@ -5,6 +5,9 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * user guide available at https://docs.gradle.org/5.0/userguide/java_library_plugin.html
  */
+ 
+apply plugin: "java"
+sourceCompatibility = 11.0
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
