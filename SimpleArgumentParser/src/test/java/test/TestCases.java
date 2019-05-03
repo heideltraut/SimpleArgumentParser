@@ -90,6 +90,7 @@ public class TestCases {
 		assertEquals(1234, intValue);
 	}
 	
+	
 	@Test
 	public void testDoubleValue() throws Exception {
 		String[] fakeArgs = {"-number", "1234.4321"};
