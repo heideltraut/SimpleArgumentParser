@@ -1,8 +1,3 @@
 language: java
-install: true
-
 jdk:
-  - openjdk8
-
-script:
-  - ./gradle build --scan -s
+  - oraclejdk8
